@@ -1,0 +1,139 @@
+﻿@model CookingRecipeWebsite.Models.Category
+
+@{
+    ViewData["Title"] = "Thêm danh mục mới";
+}
+
+<h1>Thêm danh mục mới</h1>
+
+<form asp-action="AddCategory" method="post">
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="text-danger">@Html.ValidationSummary(false)</div>
+    }
+    <div class="form-group mb-2">
+        <label asp-for="Name">Tên danh mục</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Thêm</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</form>
+
+<h2 class="mt-4">Danh sách danh mục</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên danh mục</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (ViewBag.Categories != null)
+        {
+            var categories = ViewBag.Categories as List<CookingRecipeWebsite.Models.Category>;
+            int index = 1;
+            @foreach (var category in categories)
+            {
+                <tr>
+                    <td>@index</td>
+                    <td>
+                        <span class="category-name" id="name-@category.Id">@category.Name</span>
+                        <input type="text" class="form-control edit-input" id="edit-@category.Id" value="@category.Name" style="display: none;" />
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-warning edit-btn" data-id="@category.Id">Chỉnh sửa</button>
+                        <button class="btn btn-sm btn-success save-btn" data-id="@category.Id" style="display: none;">Lưu</button>
+                        <button class="btn btn-sm btn-secondary cancel-btn" data-id="@category.Id" style="display: none;">Hủy</button>
+                    </td>
+                </tr>
+                index++;
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">Chưa có danh mục nào.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.querySelectorAll('.edit-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const id = this.getAttribute('data-id');
+                const nameSpan = document.getElementById(`name-${id}`);
+                const editInput = document.getElementById(`edit-${id}`);
+                const editBtn = this;
+                const saveBtn = document.querySelector(`.save-btn[data-id="${id}"]`);
+                const cancelBtn = document.querySelector(`.cancel-btn[data-id="${id}"]`);
+
+                nameSpan.style.display = 'none';
+                editInput.style.display = 'block';
+                editBtn.style.display = 'none';
+                saveBtn.style.display = 'inline-block';
+                cancelBtn.style.display = 'inline-block';
+            });
+        });
+
+        document.querySelectorAll('.save-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const id = this.getAttribute('data-id');
+                const editInput = document.getElementById(`edit-${id}`);
+                const newName = editInput.value.trim();
+
+                if (newName === '') {
+                    alert('Tên danh mục không được để trống!');
+                    return;
+                }
+
+                fetch('/Home/EditCategory', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id: id, name: newName })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const nameSpan = document.getElementById(`name-${id}`);
+                        nameSpan.textContent = newName;
+                        nameSpan.style.display = 'block';
+                        editInput.style.display = 'none';
+                        this.style.display = 'none';
+                        document.querySelector(`.edit-btn[data-id="${id}"]`).style.display = 'inline-block';
+                        document.querySelector(`.cancel-btn[data-id="${id}"]`).style.display = 'none';
+                    } else {
+                        alert('Lỗi khi lưu danh mục: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Đã xảy ra lỗi khi lưu.');
+                });
+            });
+        });
+
+        document.querySelectorAll('.cancel-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const id = this.getAttribute('data-id');
+                const nameSpan = document.getElementById(`name-${id}`);
+                const editInput = document.getElementById(`edit-${id}`);
+                const editBtn = document.querySelector(`.edit-btn[data-id="${id}"]`);
+                const saveBtn = document.querySelector(`.save-btn[data-id="${id}"]`);
+
+                editInput.value = nameSpan.textContent;
+                nameSpan.style.display = 'block';
+                editInput.style.display = 'none';
+                editBtn.style.display = 'inline-block';
+                saveBtn.style.display = 'none';
+                this.style.display = 'none';
+            });
+        });
+    </script>
+}
