@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<h1>Đăng nhập</h1>
+
+<form asp-action="Login" method="post">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="form-control" />
+    </div>
+    <div class="form-group mb-2">
+        <label for="password">Mật khẩu</label>
+        <input type="password" name="password" class="form-control" />
+    </div>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="text-danger">@Html.ValidationSummary()</div>
+    }
+    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+    <a asp-action="Register" class="btn btn-secondary">Đăng ký</a>
+</form>

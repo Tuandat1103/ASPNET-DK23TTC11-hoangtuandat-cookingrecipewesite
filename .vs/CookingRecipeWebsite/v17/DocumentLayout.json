@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC72B7B-288B-41E4-BE5C-9B7907F15442}|CookingRecipeWebsite\\CookingRecipeWebsite.csproj|d:\\users\\hoang\\source\\repos\\cookingrecipewebsite\\cookingrecipewebsite\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC72B7B-288B-41E4-BE5C-9B7907F15442}|CookingRecipeWebsite\\CookingRecipeWebsite.csproj|solutionrelative:cookingrecipewebsite\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC72B7B-288B-41E4-BE5C-9B7907F15442}|CookingRecipeWebsite\\CookingRecipeWebsite.csproj|d:\\users\\hoang\\source\\repos\\cookingrecipewebsite\\cookingrecipewebsite\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0CC72B7B-288B-41E4-BE5C-9B7907F15442}|CookingRecipeWebsite\\CookingRecipeWebsite.csproj|solutionrelative:cookingrecipewebsite\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC72B7B-288B-41E4-BE5C-9B7907F15442}|CookingRecipeWebsite\\CookingRecipeWebsite.csproj|d:\\users\\hoang\\source\\repos\\cookingrecipewebsite\\cookingrecipewebsite\\views\\home\\addrecipe.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0CC72B7B-288B-41E4-BE5C-9B7907F15442}|CookingRecipeWebsite\\CookingRecipeWebsite.csproj|solutionrelative:cookingrecipewebsite\\views\\home\\addrecipe.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC72B7B-288B-41E4-BE5C-9B7907F15442}|CookingRecipeWebsite\\CookingRecipeWebsite.csproj|d:\\users\\hoang\\source\\repos\\cookingrecipewebsite\\cookingrecipewebsite\\views\\home\\addcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0CC72B7B-288B-41E4-BE5C-9B7907F15442}|CookingRecipeWebsite\\CookingRecipeWebsite.csproj|solutionrelative:cookingrecipewebsite\\views\\home\\addcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC72B7B-288B-41E4-BE5C-9B7907F15442}|CookingRecipeWebsite\\CookingRecipeWebsite.csproj|d:\\users\\hoang\\source\\repos\\cookingrecipewebsite\\cookingrecipewebsite\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC72B7B-288B-41E4-BE5C-9B7907F15442}|CookingRecipeWebsite\\CookingRecipeWebsite.csproj|solutionrelative:cookingrecipewebsite\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC72B7B-288B-41E4-BE5C-9B7907F15442}|CookingRecipeWebsite\\CookingRecipeWebsite.csproj|d:\\users\\hoang\\source\\repos\\cookingrecipewebsite\\cookingrecipewebsite\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0CC72B7B-288B-41E4-BE5C-9B7907F15442}|CookingRecipeWebsite\\CookingRecipeWebsite.csproj|solutionrelative:cookingrecipewebsite\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\CookingRecipeWebsite\\Views\\Home\\Detail.cshtml",
+              "RelativeDocumentMoniker": "CookingRecipeWebsite\\Views\\Home\\Detail.cshtml",
+              "ToolTip": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\CookingRecipeWebsite\\Views\\Home\\Detail.cshtml",
+              "RelativeToolTip": "CookingRecipeWebsite\\Views\\Home\\Detail.cshtml",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-10T10:09:42.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddRecipe.cshtml",
+              "DocumentMoniker": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\CookingRecipeWebsite\\Views\\Home\\AddRecipe.cshtml",
+              "RelativeDocumentMoniker": "CookingRecipeWebsite\\Views\\Home\\AddRecipe.cshtml",
+              "ToolTip": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\CookingRecipeWebsite\\Views\\Home\\AddRecipe.cshtml",
+              "RelativeToolTip": "CookingRecipeWebsite\\Views\\Home\\AddRecipe.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAC4AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-10T09:38:22.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\CookingRecipeWebsite\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "CookingRecipeWebsite\\Models\\Category.cs",
+              "ToolTip": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\CookingRecipeWebsite\\Models\\Category.cs",
+              "RelativeToolTip": "CookingRecipeWebsite\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T10:00:21.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\CookingRecipeWebsite\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "CookingRecipeWebsite\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\CookingRecipeWebsite\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "CookingRecipeWebsite\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAADwvxIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-10T09:55:30.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddCategory.cshtml",
+              "DocumentMoniker": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\CookingRecipeWebsite\\Views\\Home\\AddCategory.cshtml",
+              "RelativeDocumentMoniker": "CookingRecipeWebsite\\Views\\Home\\AddCategory.cshtml",
+              "ToolTip": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\CookingRecipeWebsite\\Views\\Home\\AddCategory.cshtml",
+              "RelativeToolTip": "CookingRecipeWebsite\\Views\\Home\\AddCategory.cshtml",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvw0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-10T09:38:23.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\CookingRecipeWebsite\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "CookingRecipeWebsite\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Users\\hoang\\source\\repos\\CookingRecipeWebsite\\CookingRecipeWebsite\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "CookingRecipeWebsite\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAUwGUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T02:58:09.81Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
