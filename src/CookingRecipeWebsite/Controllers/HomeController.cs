@@ -376,6 +376,35 @@ namespace CookingRecipeWebsite.Controllers
             return Json(new { success = true });
         }
 
+        // POST: DeleteCategory (AJAX)
+        [HttpPost]
+        public async Task<IActionResult> DeleteCategory([FromBody] DeleteCategoryModel model)
+        {
+            System.Diagnostics.Debug.WriteLine($"Deleting category: Id={model.Id}");
+            if (model == null || string.IsNullOrWhiteSpace(model.Id))
+            {
+                return Json(new { success = false, message = "ID danh mục không hợp lệ" });
+            }
+
+            var category = await _context.Categories
+                .Include(c => c.Recipes)
+                .FirstOrDefaultAsync(c => c.Id == int.Parse(model.Id));
+            if (category == null)
+            {
+                return Json(new { success = false, message = "Danh mục không tồn tại" });
+            }
+
+            if (category.Recipes != null && category.Recipes.Any())
+            {
+                return Json(new { success = false, message = "Không thể xóa danh mục vì đang có công thức liên kết" });
+            }
+
+            _context.Categories.Remove(category);
+            await _context.SaveChangesAsync();
+            System.Diagnostics.Debug.WriteLine("Category deleted successfully");
+            return Json(new { success = true });
+        }
+
         [HttpPost]
         public async Task<IActionResult> Register(User user)
         {
@@ -442,5 +471,10 @@ namespace CookingRecipeWebsite.Controllers
     {
         public string Id { get; set; }
         public string Name { get; set; }
+    }
+
+    public class DeleteCategoryModel
+    {
+        public string Id { get; set; }
     }
 }
