@@ -16,6 +16,58 @@ namespace CookingRecipeWebsite.Controllers
             _context = context;
         }
 
+        // GET: Statistics
+        public IActionResult Statistics()
+        {
+            System.Diagnostics.Debug.WriteLine("Entering Statistics action");
+
+            // Tổng số danh mục
+            var totalCategories = _context.Categories.Count();
+            ViewBag.TotalCategories = totalCategories;
+
+            // Tổng số công thức
+            var totalRecipes = _context.Recipes.Count();
+            ViewBag.TotalRecipes = totalRecipes;
+
+            // Tổng số người dùng
+            var totalUsers = _context.Users.Count();
+            ViewBag.TotalUsers = totalUsers;
+
+            // Số công thức theo danh mục
+            var categoryStats = _context.Categories
+                .GroupJoin(_context.Recipes,
+                    category => category.Id,
+                    recipe => recipe.CategoryId,
+                    (category, recipes) => new CategoryStat
+                    {
+                        CategoryName = category.Name,
+                        RecipeCount = recipes.Count()
+                    })
+                .OrderBy(c => c.CategoryName)
+                .ToList();
+            ViewBag.CategoryStats = categoryStats;
+
+            // Top 5 danh mục phổ biến
+            var topCategories = _context.Categories
+                .GroupJoin(_context.Recipes,
+                    category => category.Id,
+                    recipe => recipe.CategoryId,
+                    (category, recipes) => new CategoryStat
+                    {
+                        CategoryName = category.Name,
+                        RecipeCount = recipes.Count()
+                    })
+                .OrderByDescending(c => c.RecipeCount)
+                .Take(5)
+                .ToList();
+            ViewBag.TopCategories = topCategories;
+
+            ViewBag.UserId = HttpContext.Session.GetString("UserId");
+            ViewBag.UserEmail = HttpContext.Session.GetString("UserEmail");
+            System.Diagnostics.Debug.WriteLine($"UserId: {ViewBag.UserId}, UserEmail: {ViewBag.UserEmail}");
+
+            return View();
+        }
         public IActionResult Index(string searchString, int? categoryId, int page = 1)
         {
             System.Diagnostics.Debug.WriteLine("Entering Index action");

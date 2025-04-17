@@ -1,0 +1,98 @@
+﻿@model CookingRecipeWebsite.Models.CategoryStat
+
+@{
+    ViewData["Title"] = "Thống kê";
+}
+
+<h1>Thống kê</h1>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h3>Tổng quan</h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="alert alert-primary">
+                    <h5>Tổng số danh mục</h5>
+                    <p>@ViewBag.TotalCategories</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="alert alert-success">
+                    <h5>Tổng số công thức</h5>
+                    <p>@ViewBag.TotalRecipes</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="alert alert-info">
+                    <h5>Tổng số người dùng</h5>
+                    <p>@ViewBag.TotalUsers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h3>Số công thức theo danh mục</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên danh mục</th>
+                    <th>Số công thức</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.CategoryStats != null)
+                {
+                    var stats = ViewBag.CategoryStats as List<CookingRecipeWebsite.Models.CategoryStat>;
+                    int index = 1;
+                    @foreach (var stat in stats)
+                    {
+                        <tr>
+                            <td>@index</td>
+                            <td>@stat.CategoryName</td>
+                            <td>@stat.RecipeCount</td>
+                        </tr>
+                        index++;
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">Chưa có dữ liệu.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3>Top 5 danh mục phổ biến</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            @if (ViewBag.TopCategories != null)
+            {
+                var topCategories = ViewBag.TopCategories as List<CookingRecipeWebsite.Models.CategoryStat>;
+                @foreach (var category in topCategories)
+                {
+                    <li class="list-group-item">@category.CategoryName: @category.RecipeCount công thức</li>
+                }
+            }
+            else
+            {
+                <li class="list-group-item">Chưa có danh mục nào.</li>
+            }
+        </ul>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Quay lại</a>
