@@ -1,0 +1,15 @@
+# Báo cáo tiến độ tuần 3
+- Ngày: 22/04/2025
+- Công việc:
+  - Cập nhật giao diện _Layout.cshtml với màu sắc ấm cúng (cam nhạt, xám nhạt).
+  - Thêm font Poppins và Lobster, tích hợp Bootstrap Icons cho menu.
+  - Thêm mục Quản lý danh mục vào navbar, cải thiện hiển thị email người dùng.
+  - Thêm hiệu ứng hover và fade-in cho navbar và footer.
+  - Cập nhật giao diện Login.cshtml với card, màu xanh lá/cam, icon, và hiệu ứng fade-in.
+  - Cập nhật giao diện Register.cshtml với card, màu xanh lá/cam, Bootstrap Icons, và popup slide-down.
+  - Cập nhật giao diện AddCategory.cshtml, chuyển bảng danh mục sang card, thêm màu sắc ấm cúng và hiệu ứng fade-in/fade-out.
+  - Cập nhật giao diện AddRecipe.cshtml với card, màu xanh lá/cam, font Poppins/Lobster, và hiệu ứng fade-in cho form/ảnh.
+  - Cập nhật giao diện Details.cshtml với card, màu xanh lá/cam, font Poppins/Lobster, và hiệu ứng fade-in cho ảnh/nội dung.
+  - Cập nhật giao diện EditRecipe.cshtml với card, màu xanh lá/cam, font Poppins/Lobster, và hiệu ứng fade-in cho form/ảnh.
+  - Cập nhật giao diện Index.cshtml với card, màu xanh lá/cam, font Poppins/Lobster, hiệu ứng fade-in, và phân trang tùy chỉnh.
+  - Cập nhật giao diện Statistics.cshtml với card, màu xanh lá/cam, font Poppins/Lobster, hiệu ứng fade-in, và thay bảng bằng card danh mục.

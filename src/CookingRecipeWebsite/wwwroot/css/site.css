@@ -1,4 +1,4 @@
-html {
+﻿html {
   font-size: 14px;
 }
 
@@ -19,4 +19,314 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+/* Cozy theme for Cooking Recipe Website */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFFFF;
+}
+
+.cozy-navbar {
+    background-color: #FF9F43; /* Cam nhạt */
+    animation: fadeIn 1s ease-in;
+}
+
+.cozy-logo {
+    font-family: 'Lobster', cursive;
+    font-size: 1.8rem;
+    color: #FFFFFF;
+    transition: transform 0.3s;
+}
+
+    .cozy-logo:hover {
+        transform: scale(1.05);
+    }
+
+.cozy-nav-link {
+    color: #FFFFFF !important;
+    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+}
+
+    .cozy-nav-link:hover {
+        color: #F48C06 !important; /* Cam đậm */
+        transform: scale(1.1);
+    }
+
+    .cozy-nav-link i {
+        margin-right: 0.3rem;
+    }
+
+.cozy-user {
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+}
+
+.cozy-footer {
+    background-color: #F7F7F7; /* Xám nhạt */
+    color: #333333;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.cozy-slogan {
+    font-size: 0.9rem;
+    color: #555555;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .cozy-logo {
+        font-size: 1.5rem;
+    }
+
+    .cozy-nav-link {
+        padding: 0.5rem;
+    }
+}
+.cozy-card {
+    background-color: #FFFFFF;
+    border: 1px solid #F7F7F7;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in;
+}
+
+.cozy-title {
+    font-family: 'Lobster', cursive;
+    color: #FF9F43; /* Cam nhạt */
+    font-size: 2.5rem;
+}
+
+.cozy-label {
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+    font-weight: 600;
+}
+
+.cozy-input {
+    border: 1px solid #CCCCCC;
+    transition: border-color 0.3s;
+}
+
+.cozy-input:focus {
+    border-color: #2ECC71; /* Xanh lá */
+    box-shadow: 0 0 5px rgba(46,204,113,0.3);
+}
+
+.cozy-error {
+    background-color: #FFE6E6;
+    color: #D00000; /* Đỏ cherry */
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.cozy-btn {
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.cozy-btn-login {
+    background-color: #2ECC71; /* Xanh lá */
+    border-color: #2ECC71;
+    color: #FFFFFF;
+}
+
+.cozy-btn-login:hover {
+    background-color: #27AE60; /* Xanh lá đậm */
+    border-color: #27AE60;
+    transform: scale(1.05);
+}
+
+.cozy-btn-register {
+    background-color: #FF9F43; /* Cam nhạt */
+    border-color: #FF9F43;
+    color: #FFFFFF;
+}
+
+.cozy-btn-register:hover {
+    background-color: #F48C06; /* Cam đậm */
+    border-color: #F48C06;
+    transform: scale(1.05);
+}
+.cozy-subtitle {
+    font-family: 'Lobster', cursive;
+    color: #FF9F43; /* Cam nhạt */
+    font-size: 2rem;
+}
+
+.cozy-category-card {
+    background-color: #FFFFFF;
+    border: 1px solid #F7F7F7;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in;
+}
+
+.category-index {
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+    font-weight: 600;
+}
+
+.category-name {
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+}
+
+.category-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.cozy-btn-edit {
+    background-color: #FF9F43; /* Cam nhạt */
+    border-color: #FF9F43;
+    color: #FFFFFF;
+}
+
+.cozy-btn-edit:hover {
+    background-color: #F48C06; /* Cam đậm */
+    border-color: #F48C06;
+    transform: scale(1.05);
+}
+
+.cozy-btn-save {
+    background-color: #2ECC71; /* Xanh lá */
+    border-color: #2ECC71;
+    color: #FFFFFF;
+}
+
+.cozy-btn-save:hover {
+    background-color: #27AE60; /* Xanh lá đậm */
+    border-color: #27AE60;
+    transform: scale(1.05);
+}
+
+.cozy-btn-cancel {
+    background-color: #6C757D; /* Xám nhạt */
+    border-color: #6C757D;
+    color: #FFFFFF;
+}
+
+.cozy-btn-cancel:hover {
+    background-color: #5A6268; /* Xám đậm */
+    border-color: #5A6268;
+    transform: scale(1.05);
+}
+
+.cozy-btn-delete {
+    background-color: #D00000; /* Đỏ cherry */
+    border-color: #D00000;
+    color: #FFFFFF;
+}
+
+.cozy-btn-delete:hover {
+    background-color: #C82333; /* Đỏ nhạt */
+    border-color: #C82333;
+    transform: scale(1.05);
+}
+.cozy-image-preview {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.cozy-image-preview img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #2ECC71;
+    border-radius: 10px;
+}
+
+.cozy-image-fade {
+    animation: fadeIn 1s ease-in;
+}
+
+.cozy-subcard {
+    background-color: #FFFFFF;
+    border: 1px solid #F7F7F7;
+    border-radius: 8px;
+    padding: 1rem;
+    animation: fadeIn 1s ease-in;
+}
+
+.cozy-content {
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+    font-size: 1rem;
+}
+
+.cozy-image {
+    width: 100%;
+    height: auto;
+    border: 2px solid #2ECC71; 
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in;
+}
+.cozy-text-ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cozy-page-link {
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+    transition: all 0.3s;
+}
+
+.cozy-page-link:hover {
+    background-color: #2ECC71;
+    color: #FFFFFF;
+}
+
+.page-item.active .cozy-page-link {
+    background-color: #FF9F43;
+    border-color: #FF9F43;
+    color: #FFFFFF;
+}
+.cozy-stat-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in;
+}
+
+.cozy-stat-category {
+    background-color: #FF9F43;
+    color: #FFFFFF;
+}
+
+.cozy-stat-recipe {
+    background-color: #2ECC71;
+    color: #FFFFFF;
+}
+
+.cozy-stat-user {
+    background-color: #F7F7F7;
+    color: #333333;
+}
+
+.cozy-list-item {
+    border-color: #2ECC71;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeIn 1s ease-in;
+}
+
+.cozy-list-item .cozy-content {
+    color: #333333;
+}
+
+.cozy-list-item .text-warning {
+    color: #FF9F43 !important;
 }

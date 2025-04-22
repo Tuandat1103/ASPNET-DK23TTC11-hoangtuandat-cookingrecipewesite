@@ -4,55 +4,75 @@
     ViewData["Title"] = "Chỉnh sửa công thức";
 }
 
-<h1>Chỉnh sửa công thức</h1>
-
-<form asp-action="EditRecipe" enctype="multipart/form-data">
-    <input type="hidden" asp-for="Id" />
-    <input type="hidden" asp-for="UserId" />
-    @if (!ViewData.ModelState.IsValid)
-    {
-        <div class="text-danger">@Html.ValidationSummary(false)</div>
-    }
-    <div class="form-group">
-        <label asp-for="Title">Tên món ăn</label>
-        <input asp-for="Title" class="form-control" />
-        <span asp-validation-for="Title" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Ingredients">Nguyên liệu</label>
-        <textarea asp-for="Ingredients" class="form-control"></textarea>
-        <span asp-validation-for="Ingredients" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Instructions">Hướng dẫn nấu</label>
-        <textarea asp-for="Instructions" class="form-control"></textarea>
-        <span asp-validation-for="Instructions" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="CategoryId">Danh mục</label>
-        <select asp-for="CategoryId" class="form-control">
-            <option value="">Chọn danh mục</option>
-            @foreach (var category in ViewBag.Categories)
+<div class="cozy-card mx-auto mt-5" style="max-width: 600px;">
+    <div class="card-body">
+        <h1 class="cozy-title text-center">Chỉnh sửa công thức</h1>
+        <form asp-action="EditRecipe" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="UserId" />
+            @if (!ViewData.ModelState.IsValid)
             {
-                <option value="@category.Id" selected="@(category.Id == Model.CategoryId ? "selected" : null)">@category.Name</option>
+                <div class="cozy-error alert alert-danger">@Html.ValidationSummary(false)</div>
             }
-        </select>
-        <span asp-validation-for="CategoryId" class="text-danger"></span>
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="cozy-label">Tên món ăn</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-pen"></i></span>
+                    <input asp-for="Title" class="form-control cozy-input" />
+                </div>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Ingredients" class="cozy-label">Nguyên liệu</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-list-check"></i></span>
+                    <textarea asp-for="Ingredients" class="form-control cozy-input"></textarea>
+                </div>
+                <span asp-validation-for="Ingredients" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Instructions" class="cozy-label">Hướng dẫn nấu</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-book"></i></span>
+                    <textarea asp-for="Instructions" class="form-control cozy-input"></textarea>
+                </div>
+                <span asp-validation-for="Instructions" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="CategoryId" class="cozy-label">Danh mục</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-tag"></i></span>
+                    <select asp-for="CategoryId" class="form-control cozy-input">
+                        <option value="">Chọn danh mục</option>
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <option value="@category.Id" selected="@(category.Id == Model.CategoryId ? "selected" : null)">@category.Name</option>
+                        }
+                    </select>
+                </div>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label for="imageFile" class="cozy-label">Chọn ảnh mới (nếu muốn thay đổi)</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-image"></i></span>
+                    <input type="file" name="imageFile" id="imageFile" class="form-control cozy-input" accept="image/*" onchange="previewImage(event)" />
+                </div>
+                <div id="imagePreview" class="cozy-image-preview mt-2">
+                    <img id="previewImg" src="#" alt="Ảnh xem trước" style="display: none;" />
+                </div>
+                <div class="cozy-image-preview mt-2">
+                    <label class="cozy-label">Ảnh hiện tại:</label>
+                    <img src="@Model.ImagePath" alt="Ảnh hiện tại" />
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn cozy-btn cozy-btn-login">Lưu</button>
+                <a asp-action="Index" class="btn cozy-btn cozy-btn-register">Hủy</a>
+            </div>
+        </form>
     </div>
-    <div class="form-group mb-2">
-        <label for="imageFile">Chọn ảnh mới (nếu muốn thay đổi)</label>
-        <input type="file" name="imageFile" id="imageFile" class="form-control" accept="image/*" onchange="previewImage(event)" />
-        <div id="imagePreview" class="mt-2" style="max-width: 200px;">
-            <img id="previewImg" src="#" alt="Ảnh xem trước" style="display: none; width: 100%; height: auto;" />
-        </div>
-        <div class="mt-2">
-            <label>Ảnh hiện tại:</label>
-            <img src="@Model.ImagePath" alt="Ảnh hiện tại" style="max-width: 200px;" />
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Lưu</button>
-    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
-</form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
@@ -65,6 +85,10 @@
                 reader.onload = function (e) {
                     previewImg.src = e.target.result;
                     previewImg.style.display = 'block';
+                    previewImg.classList.add('cozy-image-fade');
+                    setTimeout(() => {
+                        previewImg.classList.remove('cozy-image-fade');
+                    }, 1000);
                 };
                 reader.readAsDataURL(file);
             } else {
