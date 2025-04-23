@@ -5,7 +5,7 @@
     ViewData["Title"] = "Trang chủ - Công thức nấu ăn";
 }
 
-<div class="cozy-card mx-auto mt-5" style="max-width: 1000px;">
+<div class="cozy-card mx-auto mt-5" >
     <div class="card-body">
         <h1 class="cozy-title text-center">Danh sách công thức nấu ăn</h1>
 
@@ -48,7 +48,9 @@
             {
                 <div class="col-md-4">
                     <div class="cozy-subcard mb-4" style="animation-delay: @(index * 0.1)s;">
-                        <img src="@recipe.ImagePath" class="cozy-image card-img-top" alt="@recipe.Title" />
+                        <div class="cozy-image-container">
+                            <img src="@recipe.ImagePath" class="cozy-image" alt="@recipe.Title" />
+                        </div>
                         <div class="card-body">
                             <h5 class="cozy-content card-title">@recipe.Title</h5>
                             <p class="cozy-content card-text cozy-text-ellipsis"><strong>Nguyên liệu:</strong> @recipe.Ingredients</p>
