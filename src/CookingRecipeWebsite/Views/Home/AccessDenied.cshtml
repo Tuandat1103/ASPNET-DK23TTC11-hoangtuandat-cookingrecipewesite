@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Truy cập bị từ chối";
+}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm fade-in">
+                <div class="card-body text-center">
+                    <h2 class="card-title" style="font-family: Lobster;">Truy cập bị từ chối</h2>
+                    <p class="text-danger">Bạn không có quyền truy cập trang này.</p>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary" style="background-color: #FF9F43; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">Quay lại trang chủ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

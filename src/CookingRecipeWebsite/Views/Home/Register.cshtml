@@ -4,43 +4,57 @@
     ViewData["Title"] = "Đăng ký";
 }
 
-<h1>Đăng ký</h1>
-
-<form asp-action="Register" method="post" id="registerForm">
-    @if (!ViewData.ModelState.IsValid)
-    {
-        <div class="text-danger">@Html.ValidationSummary(false)</div>
-    }
-    <div class="form-group">
-        <label asp-for="Email">Email</label>
-        <input asp-for="Email" class="form-control" value="@Model?.Email" />
-        <span asp-validation-for="Email" class="text-danger"></span>
+<div class="cozy-card mx-auto mt-5" style="max-width: 500px;">
+    <div class="card-body">
+        <h1 class="cozy-title text-center">Đăng ký</h1>
+        <form asp-action="Register" method="post" id="registerForm">
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="cozy-error alert alert-danger">@Html.ValidationSummary(false)</div>
+            }
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="cozy-label">Email</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                    <input asp-for="Email" class="form-control cozy-input" value="@Model?.Email" />
+                </div>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Password" class="cozy-label">Mật khẩu</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                    <input asp-for="Password" type="password" class="form-control cozy-input" id="passwordInput" />
+                    <span class="input-group-text">
+                        <i id="passwordToggleIcon" class="bi bi-eye cozy-toggle-icon" onclick="togglePassword('passwordInput', this)"></i>
+                    </span>
+                </div>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ConfirmPassword" class="cozy-label">Xác nhận mật khẩu</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                    <input asp-for="ConfirmPassword" type="password" class="form-control cozy-input" id="confirmPasswordInput" />
+                    <span class="input-group-text">
+                        <i id="confirmPasswordToggleIcon" class="bi bi-eye cozy-toggle-icon" onclick="togglePassword('confirmPasswordInput', this)"></i>
+                    </span>
+                </div>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn cozy-btn cozy-btn-login">Đăng ký</button>
+                <a asp-action="Login" class="btn cozy-btn cozy-btn-register">Đăng nhập</a>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label asp-for="Password">Mật khẩu</label>
-        <div class="position-relative">
-            <input asp-for="Password" type="password" class="form-control" id="passwordInput" style="padding-right: 40px;" />
-            <i id="passwordToggleIcon" class="fa fa-eye position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;" onclick="togglePassword('passwordInput', this)"></i>
-        </div>
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
-    <div class="form-group mb-2">
-        <label asp-for="ConfirmPassword">Xác nhận mật khẩu</label>
-        <div class="position-relative">
-            <input asp-for="ConfirmPassword" type="password" class="form-control" id="confirmPasswordInput" style="padding-right: 40px;" />
-            <i id="confirmPasswordToggleIcon" class="fa fa-eye position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;" onclick="togglePassword('confirmPasswordInput', this)"></i>
-        </div>
-        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Đăng ký</button>
-    <a asp-action="Login" class="btn btn-secondary">Đăng nhập</a>
-</form>
+</div>
 
 <!-- Popup thông báo -->
-<div id="successPopup" class="modal" tabindex="-1" role="dialog" style="display: none;">
+<div id="successPopup" class="modal cozy-modal" tabindex="-1" role="dialog" style="display: none;">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header cozy-modal-header">
                 <h5 class="modal-title">Đăng ký thành công</h5>
             </div>
             <div class="modal-body">
@@ -52,29 +66,26 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-    <!-- Thêm Font Awesome cho icon con mắt -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         // Toggle hiển thị mật khẩu
         function togglePassword(inputId, iconElement) {
             const input = document.getElementById(inputId);
             if (input.type === "password") {
                 input.type = "text";
-                iconElement.classList.remove("fa-eye");
-                iconElement.classList.add("fa-eye-slash");
+                iconElement.classList.remove("bi-eye");
+                iconElement.classList.add("bi-eye-slash");
             } else {
                 input.type = "password";
-                iconElement.classList.remove("fa-eye-slash");
-                iconElement.classList.add("fa-eye");
+                iconElement.classList.remove("bi-eye-slash");
+                iconElement.classList.add("bi-eye");
             }
         }
 
         // Xử lý submit form và hiển thị popup
         document.getElementById("registerForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Ngăn submit mặc định để kiểm tra
+            event.preventDefault();
             const form = this;
 
-            // Gửi form qua AJAX
             fetch(form.action, {
                 method: "POST",
                 body: new FormData(form),
@@ -85,28 +96,19 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // Hiển thị popup
                     const popup = document.getElementById("successPopup");
                     popup.style.display = "block";
-                    // Chuyển hướng sau 2 giây
                     setTimeout(() => {
                         window.location.href = "@Url.Action("Login", "Home")";
                     }, 2000);
                 } else {
-                    // Nếu thất bại, submit lại để hiển thị lỗi validation
                     form.submit();
                 }
             })
             .catch(error => {
                 console.error("Error:", error);
-                form.submit(); // Submit lại nếu lỗi mạng
+                form.submit();
             });
         });
     </script>
-    <style>
-        /* CSS cho popup */
-        .modal {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-    </style>
 }
